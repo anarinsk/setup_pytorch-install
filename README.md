@@ -2,7 +2,7 @@
 
 파이토치를 인스톨하기 위한 각종 시도와 기록들 
 
-## Macbook Pro 16, M1pro - 20221209
+## M1 Pro + Macos / Macbook Pro 16 - 20221209
 
 - MBP에서 파이토치 설치 
 
@@ -18,11 +18,16 @@
 
 #### Jupyter 설치 
 
+https://pytorch.org/ 
+
+인스톨 지침을 그대로 따르면 된다. OS 별로 자동으로 잡아 준다. 
+
 ```shell
 conda install -c conda-forge jupyter jupyterlab
 ```
 
 - `$ jupyter lab`으로 주피터 실행 
+- VS CODE를 쓰자.
 
 ### 설치 확인 
 
@@ -78,4 +83,39 @@ for t in range(2000):
 
 
 print(f'Result: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
+```
+
+## x86 + CUDA + Windows 11 / Intel i9 - 20230430
+
+### nvidia 장비 확인 
+
+- CUDA 버전도 확인 가능하다. 
+
+```shell
+> nvidia-smi
+```
+
+### CUDA 확인 
+
+```python
+>>> import torch
+>>> import os
+>>> os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+
+>>> print(f"CUDA availability: {torch.cuda.is_available()}")
+>>> print(f"# of CUDA: {torch.cuda.device_count()}")
+
+>>> print(f"Currently selected CUDA devie: {torch.cuda.current_device()}")
+>>> print(torch.cuda.device(0))
+
+>>> print(f"Name of GPU: {torch.cuda.get_device_name(0)}")
+
+```
+
+```raw
+CUDA availability: True
+# of CUDA: 1
+Currently selected CUDA devie: 0
+<torch.cuda.device object at 0x000002174AED05D0>
+Name of GPU: NVIDIA GeForce RTX 4070 Laptop GPU
 ```
