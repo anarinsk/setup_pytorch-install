@@ -2,6 +2,51 @@
 
 파이토치를 인스톨하기 위한 각종 시도와 기록들 
 
+## With Rye + VS Code [20230530]
+
+[Rye](https://rye-up.com/)를 먼저 설치하자. 
+
+github에서 pull한 `test_pytorch-install` 폴더로 들어가자. 
+
+### CPU, MPS 활용할 경우 
+
+```shell
+> rye init 
+> rye add ipykernel torch torchvision torchaudio
+> rye sync 
+```
+
+### CUDA 
+
+쿠다를 활용할 경우는 별도의 패키지 의존성이 필요하다. 이 녀석을 어떻게 잡아주면 될까? 
+
+`pyproject.toml`을 열자. 
+
+```toml
+[[tool.rye.sources]]
+name = "pytorch-cuda118"
+url = "https://download.pytorch.org/whl/cu118"
+type = "index"
+```
+
+새롭게 `.lock`을 생성하도록 하자. 
+
+```shell
+> rye add torch torchvision torchaudio
+
+Added torch==2.0.1+cu118 as regular dependency
+Added torchvision==0.15.2+cu118 as regular dependency
+Added torchaudio==2.0.2+cu118 as regular dependency
+
+> rye sync
+```
+
+`.lock`을 생성하는 데 조금 시간이 걸릴 수 있다. 기다리면 생성되고 패키지 설치가 시작된다. 
+
+VS Code의 가상 환경을 `.venv`로 잡아주자. 이를 통해 해당 폴더의 `.venv`에 깔린 파이썬 가상 환경을 커널로 부리게 된다. 
+
+`test_working-example.ipynb`를 실행해서 설치를 확인하자. cuda가 활성화된 경우에는 이를 확인할 수 있다. 
+
 ## M1 Pro + Macos / Macbook Pro 16 - 20221209
 
 - MBP에서 파이토치 설치 

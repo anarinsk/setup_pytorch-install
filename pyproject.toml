@@ -1,0 +1,24 @@
+[project]
+name = "test-pytorch-install"
+version = "0.1.0"
+description = "Add a short description here"
+authors = [
+    { name = "Junsok Huhh", email = "anarinsk@gmail.com" }
+]
+dependencies = ["ipykernel~=6.23.1", "torch==2.0.1+cu118", "torchvision==0.15.2+cu118", "torchaudio==2.0.2+cu118"]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[[tool.rye.sources]]
+name = "pytorch-cuda118"
+url = "https://download.pytorch.org/whl/cu118"
+type = "index"
