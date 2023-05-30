@@ -130,7 +130,7 @@ for t in range(2000):
 print(f'Result: y = {a.item()} + {b.item()} x + {c.item()} x^2 + {d.item()} x^3')
 ```
 
-## x86 + CUDA + Windows 11 / Intel i9 - 20230430
+## [`20230430`] x86 + CUDA + Windows 11 / Intel i9
 
 ### nvidia 장비 확인 
 
