@@ -2,7 +2,7 @@
 
 파이토치를 인스톨하기 위한 각종 시도와 기록들 
 
-## [`20230530`] With Rye + VS Code
+## [`20230530`] Rye + VS Code
 
 [Rye](https://rye-up.com/)를 먼저 설치하자. 
 
