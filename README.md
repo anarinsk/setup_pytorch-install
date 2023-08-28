@@ -2,6 +2,39 @@
 
 파이토치를 인스톨하기 위한 각종 시도와 기록들 
 
+## [`20230829`] pixi + VS Code 
+
+- pixi를 통해 파이토치를 설치하고, VS Code에서 실행하는 방법을 기록한다.
+
+### Why 
+
+- OS별로 쉽게 제어할 수 있다. 예를 들어 nvidia GPU와 윈도, 리눅스 환경에서 cuda를 설치하는 것이 용이하다. 
+
+### What 
+
+- Windows + NVIDIA GPU에서는 Cuda 버전 설치 
+- Arm64 Macos: MPS 버전 
+
+### How 
+
+- `pixi.toml` 파일을 열어보자. 
+
+```toml
+channels = ["conda-forge", "pytorch", "nvidia"]
+platforms = ["win-64"]
+
+[tasks]
+
+[target.win-64.dependencies]
+pytorch-cuda = "11.8.*"
+torchaudio = "2.0.2.*"
+pytorch = "2.0.1.*"
+torchvision = "0.15.2.*"
+
+[dependencies]
+ipykernel = "6.25.1.*"
+```
+
 ## [`20230530`] Rye + VS Code
 
 [Rye](https://rye-up.com/)를 먼저 설치하자. 
