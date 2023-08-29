@@ -35,6 +35,12 @@ torchvision = "0.15.2.*"
 ipykernel = "6.25.1.*"
 ```
 
+- 패키지 설치하자. 
+
+```bash
+> pixi install
+```
+
 ## [`20230530`] Rye + VS Code
 
 [Rye](https://rye-up.com/)를 먼저 설치하자. 
