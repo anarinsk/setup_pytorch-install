@@ -1,5 +1,5 @@
 [project]
-name = "test_pixi_pytorch"
+name = "pixi_pytorch"
 version = "0.1.0"
 description = "Add a short description here"
 authors = ["Junsok Huhh <anarinsk@gmail.com>"]
