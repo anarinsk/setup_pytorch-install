@@ -3,28 +3,32 @@ name = "pixi_pytorch"
 version = "0.1.0"
 description = "Add a short description here"
 authors = ["Junsok Huhh <anarinsk@gmail.com>"]
-channels = ["conda-forge", "pytorch", "nvidia"]
+channels = ["pytorch", "nvidia", "conda-forge"]
 platforms = ["win-64", "osx-arm64", "linux-64"]
 
 [tasks]
 
+# torch release: https://pytorch.org/get-started/previous-versions/
+# Updated: 2023-11-29
+
 [target.win-64.dependencies]
-pytorch-cuda = "11.8.*"
-torchaudio = "2.0.2.*"
-pytorch = "2.0.1.*"
-torchvision = "0.15.2.*"
+ pytorch = "2.1.0"
+ torchvision = "0.16.0"
+ torchaudio = "2.1.0"
+ pytorch-cuda = "12.1"
 
 [target.osx-arm64.dependencies]
 #pytorch-cuda = "11.8.*"
-#torchaudio = "2.0.2.*"
-pytorch = "2.0.1.*"
-torchvision = "0.15.2.*"
+#torchaudio = "2.1.0"
+pytorch = "2.1.*"
+torchvision = "0.16.*"
 
 [target.linux-64.dependencies]
-pytorch-cuda = "11.8.*"
-torchaudio = "2.0.2.*"
-pytorch = "2.0.1.*"
-torchvision = "0.15.2.*"
+ pytorch = "2.1.0"
+ torchvision = "0.16.0"
+ torchaudio = "2.1.0"
+ pytorch-cuda = "12.1"
 
 [dependencies]
-ipykernel = "6.25.1.*"
+python = "~=3.11.*"
+jupyter = "1.0.0"
