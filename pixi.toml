@@ -32,3 +32,4 @@ torchvision = "0.16.*"
 [dependencies]
 python = "~=3.11.*"
 jupyter = "1.0.0"
+matplotlib = "*"
