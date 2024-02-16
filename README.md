@@ -1,6 +1,12 @@
-# test_pytorch-install
+# setup_pytorch-install
 
 파이토치를 인스톨하기 위한 각종 시도와 기록들 
+
+## [`20240216`] pixi 그리고 버전 관리 
+
+- 그냥 모든 플랫폼을 아우르고 pypi도 쓸 수는 pixi에서 쓰도록 하자. 
+- `pixi.toml` 수정 
+    - 최신 버전의 torch set을 쓰도록 하자. 버전 참고는 https://pytorch.org/get-started/locally
 
 ## [`20230908`] WSL and Ubuntu 
 
