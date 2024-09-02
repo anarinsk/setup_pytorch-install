@@ -1,24 +1,29 @@
 [project]
-name = "test-pytorch-install"
+name = "test-uv-torch"
 version = "0.1.0"
-description = "Add a short description here"
-authors = [
-    { name = "Junsok Huhh", email = "anarinsk@gmail.com" }
-]
-dependencies = ["ipykernel~=6.23.1", "torch==2.0.1+cu118", "torchvision==0.15.2+cu118", "torchaudio==2.0.2+cu118"]
+description = "Add your description here"
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">=3.11"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.9.2",
+    "torch>=2.4.0",
+    "torchvision>=0.9.0",
+    "torchaudio>=2.4.0"
+  # "torch>=2.4.0; sys_platform == 'darwin'",
+  # "torchvision>=0.9.0; sys_platform == 'darwin'",
+  # "torchaudio>=2.4.0; sys_platform == 'darwin'"
+    ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+# Optional dependencies for cuda with wsl-ubuntu 
+# activate with `uv sync --extras cuda`
 
-[tool.rye]
-managed = true
-[tool.hatch.metadata]
-allow-direct-references = true
+[project.optional-dependencies]
+cuda = [
+    "torch>=2.4.0; sys_platform == 'linux'", 
+    "torchvision>=0.9.0; sys_platform == 'linux'",
+    "torchaudio>=2.4.0; sys_platform == 'linux'"
+    ]
 
-[[tool.rye.sources]]
-name = "pytorch-cuda118"
-url = "https://download.pytorch.org/whl/cu118"
-type = "index"
+[tool.uv.sources]
+cuda = { url = "https://download.pytorch.org/whl/cu124" }
